@@ -1,3 +1,7 @@
+"""
+LangChain-based version of main.py — same RAG pipeline using LangChain's
+loaders, splitters, and vectorstore instead of manual implementation.
+"""
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -46,6 +50,7 @@ response = client_gemini.models.generate_content(
     model="gemini-2.5-flash",
     contents=prompt
 )
+print("Response length:", len(response.text))
 
 print("\n✅ Step 6 - Gemini answered!")
 print("\n--- ANSWER ---")
